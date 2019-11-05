@@ -1,0 +1,1 @@
+vue-cli-service build --target lib src/Select2.vue

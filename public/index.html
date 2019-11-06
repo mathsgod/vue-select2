@@ -27,19 +27,27 @@
     <hr />
 
     <div id="div1">
-      <select is="select2" v-model="selected" style="width: 500px;" :options="options">
-        <optgroup label="Fruit">
-          <option value="apple">Apple</option>
-          <option value="orange">Orange</option>
-          <option value="banana">Banana</option>
-        </optgroup>
+
+      <!--select class="form-control" is="select2" data-field="select2" name="select2" data-value="1">
+        <option value="0">a</option>
+        <option value="1" selected>b</option>
+        <option value="2">c</option>
+      </select -->
+
+      <hr />
+
+      <select multiple name="select2[]" value="apple" is="select2" class="form-control">
+        <option value="apple">Apple</option>
+        <option value="orange">Orange</option>
+        <option value="banana">Banana</option>
 
       </select>
+      <br />
 
       Selected:<span v-text="selected"></span>
 
       <hr />
-      <button @click="changeToBanana">Change to banana</button>
+      <button @click="changeToBanana">Change to apple banana</button>
 
 
 

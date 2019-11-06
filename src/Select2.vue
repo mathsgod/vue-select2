@@ -8,24 +8,23 @@
 export default {
   props: ["options", "value"],
   mounted() {
-    var vm = this;
-    window
-      .$(this.$el)
-      // init select2
-      .select2(this.options)
-      .val(this.value)
-      .trigger("change")
-      // emit event on change.
-      .on("change", function() {
-        vm.$emit("input", this.value);
-      });
+    var $el = window.$(this.$el);
+    var select2 = $el.select2(this.options);
+
+    $el.val(this.value).trigger("change.select2");
+
+    select2.on("change", () => {
+      let value = select2.val();
+
+      this.$emit("input", value);
+    });
   },
   watch: {
     value(value) {
       window
         .$(this.$el)
         .val(value)
-        .trigger("change");
+        .trigger("change.select2");
     },
     options(options) {
       window.$(this.$el).select2(options);
